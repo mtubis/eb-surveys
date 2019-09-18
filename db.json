@@ -121,10 +121,12 @@
             "results": [
                 {
                     "fieldId": 543,
+                    "fieldLabel": "Links",
                     "value": 54
                 },
                 {
                     "fieldId": 544,
+                    "fieldLabel": "Rechts",
                     "value": 30
                 }
             ],
@@ -142,10 +144,12 @@
             "results": [
                 {
                     "fieldId": 543,
+                    "fieldLabel": "Links",
                     "value": 48
                 },
                 {
                     "fieldId": 544,
+                    "fieldLabel": "Rechts",
                     "value": 35
                 }
             ],

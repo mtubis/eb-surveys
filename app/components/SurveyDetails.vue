@@ -20,7 +20,7 @@
                         <Label id="surveyStart" textWrap="true" class="item-date" row="1" col="0" colSpan="3" :text="resultDateStart(surveyResult)" />
                         <Label id="surveyFinish" textWrap="true" class="item-date" row="1" col="3" colSpan="3" :text="resultDateEnd(surveyResult)" />
                         <!-- 3) buttons -->
-                        <Label class="item-btn btn btn-primary" row="2" col="0" colSpan="2" text="Vorschau" />
+                        <Label class="item-btn btn btn-primary" row="2" col="0" colSpan="2" text="Vorschau" @tap="navigateToResultPreview(surveyResult)" />
                         <Label class="item-btn btn btn-primary" row="2" col="2" colSpan="2" text="Bearbeiten" />
                         <Label class="item-btn btn btn-primary" row="2" col="4" colSpan="2" text="Verwerfen" />
                     </GridLayout>
@@ -38,6 +38,8 @@
 import { mapActions, mapGetters } from "vuex";
 //import * as surveysDB from '../../db.json';
 import * as dialogs from 'tns-core-modules/ui/dialogs';
+
+import ResultPreview from "./ResultPreview";
 
 export default {
     props: {
@@ -99,6 +101,9 @@ export default {
                 return "ok";
             }
             return "Save!"
+        },
+        navigateToResultPreview(resultData) {
+            this.$navigateTo(ResultPreview, { props: { resultData } });
         }
     }
 }
