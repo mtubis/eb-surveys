@@ -49,17 +49,7 @@
       }
     },
     created() {
-      //this.GET_SURVEYS();
-      //this.$store.mapGetters
-      /*...mapGetters("Survey", [fromSurveys.GET_SURVEYS]),
-      surveys() {
-        console.log(this.getUserSurveys());
-        return this.getUserSurveys();
-        //return this.$store.state.surveys;
-      }*/
-      //// this.$store.getters.getUserSurveys;
-      // fetchProjectObject
-      //// this.$store.dispatch("fetchSurveys");
+      this.$store.dispatch('getSurveysData');
     },
     computed: {
       /*...mapState("Survey", [fromSurveys.GET_SURVEYS]),
@@ -77,7 +67,7 @@
         //// return this.$store.getters["getUserSurveys"];
         
         ////// return surveysDB.surveys;
-        return this.$store.state.testData;
+        return this.$store.state.surveys;
       }
       // ...mapState("Survey",["surveys"]),
     },

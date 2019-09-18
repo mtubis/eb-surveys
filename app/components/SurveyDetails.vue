@@ -71,10 +71,13 @@ export default {
     },
     data() {
         return {
-            surveysData: []
+            //surveysData: []
         }
     },
     computed: {
+        surveysData() {
+            return this.$store.state.results;
+        },
         surveyResults() {
             return this.surveysData.filter(resultItem => {
                 return resultItem.surveyId === this.selectedSurvey.id;
@@ -88,12 +91,7 @@ export default {
         }
     },
     created() {
-        this.surveysData = surveysDB.results;
-        /*console.log(this.selectedSurvey);
-        console.log('=================');
-        console.log(this.surveysData);
-        console.log('=================');*/
-        //console.log();
+        this.$store.dispatch('getResultsData');
     },
     methods: {
         onNavBtnTap() {
@@ -103,8 +101,6 @@ export default {
             console.log('new survey :)');
         },
         resultName(resultData) {
-            /*onsole.log('@@@ resultData @@@');
-            console.log(resultData);*/
             return this.selectedSurvey.name + " (ID: " + resultData.identifier + ")";
         },
         getDateString(date) {

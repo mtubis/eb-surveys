@@ -1,6 +1,6 @@
 import * as http from 'tns-core-modules/http';
 
-const BASE_URL = 'http://localhost:3000/surveys';
+const BASE_URL = 'http://10.0.2.2:3000/surveys';
 
 export const getSurveys = () => {
   return http
@@ -8,7 +8,12 @@ export const getSurveys = () => {
       url: BASE_URL,
       method: 'GET',
     })
-    .then(res => res.content.toJSON())
+    .then(res => {
+      // res.content.toJSON();
+      console.log('mt test #001');
+      console.log(res.content.toJSON());
+      return res.content.toJSON();
+    })
     .catch(err => console.error(err));
 };
 
