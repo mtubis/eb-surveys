@@ -23,8 +23,6 @@
   import * as dialogs from 'tns-core-modules/ui/dialogs';
   import * as surveysDB from '../../db.json';
 
-  import * as fromSurveys from "../store/modules/Surveys/mutation-types";
-  //import * as SurveysStore from "../store/modules/Surveys";
   import SurveyDetails from "./SurveyDetails";
 
   export default {
