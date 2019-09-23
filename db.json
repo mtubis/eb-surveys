@@ -17,6 +17,8 @@
                     "isFormField": true,
                     "type": "button",
                     "label": null,
+                    "style": "",
+                    "textType": "simple",
                     "text": "Links",
                     "action": {
                         "type": "tabCounter"
@@ -31,6 +33,8 @@
                     "isFormField": true,
                     "type": "button",
                     "label": null,
+                    "style": "",
+                    "textType": "simple",
                     "text": "Rechts",
                     "action": {
                         "type": "tabCounter"
@@ -45,12 +49,8 @@
                     "isFormField": false,
                     "type": "label",
                     "label": null,
-                    "style": {
-                        "text-align": "center",
-                        "font-size": 12,
-                        "color": "#000000"
-                    },
-                    "valueType": "variable",
+                    "style": "{text-align: center, font-size: 12, color: #000000}",
+                    "textType": "variable",
                     "text": "",
                     "formel": {
                         "type": "formValue",
@@ -66,12 +66,8 @@
                     "isFormField": false,
                     "type": "label",
                     "label": null,
-                    "style": {
-                        "text-align": "center",
-                        "font-size": 12,
-                        "color": "#000000"
-                    },
-                    "valueType": "variable",
+                    "style": "{text-align: center, font-size: 12, color: #000000}",
+                    "textType": "variable",
                     "text": "",
                     "formel": {
                         "type": "formValue",

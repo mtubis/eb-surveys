@@ -40,6 +40,7 @@ import { mapActions, mapGetters } from "vuex";
 import * as dialogs from 'tns-core-modules/ui/dialogs';
 
 import ResultPreview from "./ResultPreview";
+import NewSurveyGridLayout from "./NewSurveyGridLayout";
 
 export default {
     props: {
@@ -74,7 +75,19 @@ export default {
             this.$navigateBack();
         },
         newSurveyResults() {
+            // ToDo: navigate to survey
             console.log('new survey :)');
+            console.log(this.selectedSurvey);
+            console.log('==============');
+            var surveyData = this.selectedSurvey;
+            switch (this.selectedSurvey.layout.type) {
+                case "GridLayout":
+                    this.$navigateTo(NewSurveyGridLayout, { props: {surveyData} });
+                    break;
+                case "StackLayout":
+
+                    break;
+            }
         },
         resultName(resultData) {
             return this.selectedSurvey.name + " (ID: " + resultData.identifier + ")";
