@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import * as dialogs from 'tns-core-modules/ui/dialogs';
 
 export default {
     props: {
@@ -45,8 +46,21 @@ export default {
         
     },
     methods: {
+        saveResultsToVuex() {
+            this.$store.commit('saveSurveyResults', this.currentSurveyResults);
+        },
         onNavBtnTap() {
-            this.$navigateBack();
+            dialogs.confirm({
+                title: "Ergebnisse",
+                message: "Die Ergebnisse der Umfrage aufschreiben?",
+                okButtonText: "Speichern",
+                cancelButtonText: "Stornieren",
+            }).then(result => {
+                if (result) {
+                    this.saveResultsToVuex();
+                }
+                this.$navigateBack();
+            });
         },
         getColumnsLayout() {
             return this.surveyData.layout.columns;

@@ -50,6 +50,14 @@ const store = new Vuex.Store({
         discardSurveyResult(state, selectedResult) {
             // ToDo: we need action here because we need also send this to API
             state.results = state.results.filter(result => result.identifier !== selectedResult.identifier);
+        },
+        saveSurveyResults(state, resultData) {
+            var itemIndex = state.results.findIndex(item => item.identifier === resultData.identifier);
+            if (itemIndex === -1) {
+                state.results.push(resultData);
+            } else {
+                this.$set(state.results, itemIndex, resultData);
+            }
         }
     },
 });
