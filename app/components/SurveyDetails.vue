@@ -101,7 +101,13 @@ export default {
         },
         resultDateEnd(resultData) {
             var date = new Date(resultData.finishTime * 1000);
-            return "Ende:\n" + this.getDateString(date);
+            var dateString = "Ende:\n";
+            if (resultData.finishTime === null) {
+                dateString += "---";
+            } else {
+                dateString += this.getDateString(date);
+            }
+            return dateString;
         },
         resultSaveStatus(resultData) {
             if (resultData.synchronized) {
