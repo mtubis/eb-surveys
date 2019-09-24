@@ -7,8 +7,8 @@
             </ActionItem>
         </ActionBar>
         <GridLayout :columns="getColumnsLayout()" :rows="getRowsLayout()">
-            <Button v-for="(field, key) in fields" v-if="isButton(field)" :text="field.text" :row="field.row" :col="field.col" @tap="fieldAction(field)" :style="field.style" class="item-btn" />
-            <Label v-for="(field, key) in fields" v-if="isLabel(field)" :text="getItemText(field)" :row="field.row" :col="field.col" :style="field.style" class="item-label" />
+            <Button v-for="(field, key) in fields" :key="key" v-if="isButton(field)" :text="field.text" :row="field.row" :col="field.col" @tap="fieldAction(field)" :style="field.style" class="item-btn" />
+            <Label v-for="(field, key) in fields" :key="key" v-if="isLabel(field)" :text="getItemText(field)" :row="field.row" :col="field.col" :style="field.style" class="item-label" />
         </GridLayout>
     </Page>
 </template>

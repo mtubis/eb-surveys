@@ -1,157 +1,157 @@
 {
-    "surveys": [
+  "surveys": [
+    {
+      "id": 123,
+      "name": "Fussgänger zählen",
+      "amount": 6,
+      "layout": {
+        "type": "GridLayout",
+        "columns": "1*, 1*",
+        "rows": "*, 5*",
+        "styles": null,
+        "multipage": false
+      },
+      "fields": [
         {
-            "id": 123,
-            "name": "Fussgänger zählen",
-            "amount": 6,
-            "layout": {
-                "type": "GridLayout",
-                "columns": "1*, 1*",
-                "rows": "*, 5*",
-                "styles": null,
-                "multipage": false
-            },
-            "fields": [
-                {
-                    "id": 543,
-                    "isFormField": true,
-                    "type": "button",
-                    "label": null,
-                    "style": "",
-                    "textType": "simple",
-                    "text": "Links",
-                    "action": {
-                        "type": "tabCounter"
-                    },
-                    "row": "1",
-                    "col": "0",
-                    "rowSpan": null,
-                    "colSpan": null
-                },
-                {
-                    "id": 544,
-                    "isFormField": true,
-                    "type": "button",
-                    "label": null,
-                    "style": "",
-                    "textType": "simple",
-                    "text": "Rechts",
-                    "action": {
-                        "type": "tabCounter"
-                    },
-                    "row": "1",
-                    "col": "1",
-                    "rowSpan": null,
-                    "colSpan": null
-                },
-                {
-                    "id": 545,
-                    "isFormField": false,
-                    "type": "label",
-                    "label": null,
-                    "style": "{text-align: center, font-size: 12, color: #000000}",
-                    "textType": "variable",
-                    "text": "",
-                    "formel": {
-                        "type": "formValue",
-                        "reference": 543
-                    },
-                    "row": "0",
-                    "col": "0",
-                    "rowSpan": null,
-                    "colSpan": null
-                },
-                {
-                    "id": 546,
-                    "isFormField": false,
-                    "type": "label",
-                    "label": null,
-                    "style": "{text-align: center, font-size: 12, color: #000000}",
-                    "textType": "variable",
-                    "text": "",
-                    "formel": {
-                        "type": "formValue",
-                        "reference": 544
-                    },
-                    "row": "0",
-                    "col": "1",
-                    "rowSpan": null,
-                    "colSpan": null
-                }
-            ]
+          "id": 543,
+          "isFormField": true,
+          "type": "button",
+          "label": null,
+          "style": "",
+          "textType": "simple",
+          "text": "Links",
+          "action": {
+            "type": "tabCounter"
+          },
+          "row": "1",
+          "col": "0",
+          "rowSpan": null,
+          "colSpan": null
         },
         {
-            "id": 124,
-            "name": "Fussgänger zählen, mit Einzelheiten",
-            "amount": 1,
-            "layout": {
-                "type": "GridLayout",
-                "columns": "1*, 1*",
-                "rows": "*, 5*",
-                "styles": null,
-                "multipage": false
-            },
-            "fields": []
+          "id": 544,
+          "isFormField": true,
+          "type": "button",
+          "label": null,
+          "style": "",
+          "textType": "simple",
+          "text": "Rechts",
+          "action": {
+            "type": "tabCounter"
+          },
+          "row": "1",
+          "col": "1",
+          "rowSpan": null,
+          "colSpan": null
         },
         {
-            "id": 248,
-            "name": "Traditionelle Umfrage",
-            "amount": null,
-            "layout": {
-                "type": "StackLayout",
-                "orientation": "vertical",
-                "styles": null,
-                "multipage": true
-            },
-            "fields": []
+          "id": 545,
+          "isFormField": false,
+          "type": "label",
+          "label": null,
+          "style": "{text-align: center, font-size: 12, color: #000000}",
+          "textType": "variable",
+          "text": "",
+          "formel": {
+            "type": "formValue",
+            "reference": 543
+          },
+          "row": "0",
+          "col": "0",
+          "rowSpan": null,
+          "colSpan": null
+        },
+        {
+          "id": 546,
+          "isFormField": false,
+          "type": "label",
+          "label": null,
+          "style": "{text-align: center, font-size: 12, color: #000000}",
+          "textType": "variable",
+          "text": "",
+          "formel": {
+            "type": "formValue",
+            "reference": 544
+          },
+          "row": "0",
+          "col": "1",
+          "rowSpan": null,
+          "colSpan": null
         }
-    ],
-    "results": [
+      ]
+    },
+    {
+      "id": 124,
+      "name": "Fussgänger zählen, mit Einzelheiten",
+      "amount": 1,
+      "layout": {
+        "type": "GridLayout",
+        "columns": "1*, 1*",
+        "rows": "*, 5*",
+        "styles": null,
+        "multipage": false
+      },
+      "fields": []
+    },
+    {
+      "id": 248,
+      "name": "Traditionelle Umfrage",
+      "amount": null,
+      "layout": {
+        "type": "StackLayout",
+        "orientation": "vertical",
+        "styles": null,
+        "multipage": true
+      },
+      "fields": []
+    }
+  ],
+  "results": [
+    {
+      "surveyId": 123,
+      "identifier": "4354353",
+      "startTime": 1568645132,
+      "finishTime": 1568645301,
+      "latitude": "46.946592",
+      "longitude": "7.429586",
+      "results": [
         {
-            "surveyId": 123,
-            "identifier": 4354353,
-            "startTime": 1568645132,
-            "finishTime": 1568645301,
-            "latitude": "46.946592",
-            "longitude": "7.429586",
-            "results": [
-                {
-                    "fieldId": 543,
-                    "fieldLabel": "Links",
-                    "value": 54
-                },
-                {
-                    "fieldId": 544,
-                    "fieldLabel": "Rechts",
-                    "value": 30
-                }
-            ],
-            "synchronized": true,
-            "deactivated": false,
-            "edited": null
+          "fieldId": 543,
+          "fieldLabel": "Links",
+          "value": 54
         },
         {
-            "surveyId": 123,
-            "identifier": 4354354,
-            "startTime": 1568645320,
-            "finishTime": 1568645354,
-            "latitude": "46.946592",
-            "longitude": "7.429586",
-            "results": [
-                {
-                    "fieldId": 543,
-                    "fieldLabel": "Links",
-                    "value": 48
-                },
-                {
-                    "fieldId": 544,
-                    "fieldLabel": "Rechts",
-                    "value": 35
-                }
-            ],
-            "synchronized": false,
-            "deactivated": false,
-            "edited": null
+          "fieldId": 544,
+          "fieldLabel": "Rechts",
+          "value": 30
         }
-    ]
+      ],
+      "synchronized": true,
+      "deactivated": false,
+      "edited": null
+    },
+    {
+      "surveyId": 123,
+      "identifier": "4354354",
+      "startTime": 1568645320,
+      "finishTime": 1568645354,
+      "latitude": "46.946592",
+      "longitude": "7.429586",
+      "results": [
+        {
+          "fieldId": 543,
+          "fieldLabel": "Links",
+          "value": 48
+        },
+        {
+          "fieldId": 544,
+          "fieldLabel": "Rechts",
+          "value": 35
+        }
+      ],
+      "synchronized": false,
+      "deactivated": false,
+      "edited": null
+    }
+  ]
 }

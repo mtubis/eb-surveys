@@ -22,10 +22,10 @@
                         <!-- 3) buttons -->
                         <Label class="item-btn btn btn-primary" row="2" col="0" colSpan="2" text="Vorschau" @tap="navigateToResultPreview(surveyResult)" />
                         <Label class="item-btn btn btn-primary" row="2" col="2" colSpan="2" text="Bearbeiten" />
-                        <Label class="item-btn btn btn-primary" row="2" col="4" colSpan="2" text="Verwerfen" />
+                        <Label class="item-btn btn btn-primary" row="2" col="4" colSpan="2" text="Verwerfen" @tap="deleteResultItem(surveyResult)" />
                     </GridLayout>
                     <!-- button -->
-                    <Label class="item-save-btn" :class="resultSaveStatus(surveyResult)" row="1" col="1" rowSpan="3" :text="resultSaveStatusText(surveyResult)" />
+                    <Label class="item-save-btn" :class="resultSaveStatus(surveyResult)" row="1" col="1" rowSpan="3" :text="resultSaveStatusText(surveyResult)" @tap="saveResults(surveyResult)" />
                   </GridLayout>
                   </StackLayout>
                 </v-template>
@@ -75,10 +75,6 @@ export default {
             this.$navigateBack();
         },
         newSurveyResults() {
-            // ToDo: navigate to survey
-            console.log('new survey :)');
-            console.log(this.selectedSurvey);
-            console.log('==============');
             var surveyData = this.selectedSurvey;
             switch (this.selectedSurvey.layout.type) {
                 case "GridLayout":
@@ -123,6 +119,17 @@ export default {
         },
         navigateToResultPreview(resultData) {
             this.$navigateTo(ResultPreview, { props: { resultData } });
+        },
+        saveResults(resultData) {
+            resultData.synchronized = true;
+            resultData.finishTime = Math.round((new Date()).getTime() / 1000);
+            if (!resultData.synchronized) {
+                this.$store.dispatch('sendSurveyResults', resultData);
+            }
+        },
+        deleteResultItem(resultData) {
+            console.log('deleting result');
+            this.$store.dispatch('deleteSurveyResult', resultData);
         }
     }
 }
@@ -139,7 +146,6 @@ export default {
         border-color: #eeeeee;
         border-style: solid;
         box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.75);
-        
     }
     .btn {
         background-color: #ddd;

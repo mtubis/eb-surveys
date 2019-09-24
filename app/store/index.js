@@ -34,6 +34,38 @@ const store = new Vuex.Store({
                 this.commit('setResults', res.content.toJSON());
             })
             .catch(err => console.error(err));
+        },
+        sendSurveyResults(resultData) {
+            return http
+            .request({
+                url: RESULTS_URL,
+                method: 'POST',
+                content: JSON.stringify(resultData),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(res => {
+                //res.content.toJSON();
+                console.log('save - api answer ok');
+                this.commit('updateResult', res.content.toJSON());
+            })
+            .catch(err => console.error(err));
+        },
+        deleteSurveyResult(resultData) {
+            return http
+            .request({
+                url: `${RESULTS_URL}/${resultData.identifier}`,
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(res => {
+                //res.content.toJSON();
+                this.commit('deleteResult', resultData);
+            })
+            .catch(err => console.error(err));
         }
     },
     mutations: {
@@ -57,6 +89,19 @@ const store = new Vuex.Store({
                 state.results.push(resultData);
             } else {
                 this.$set(state.results, itemIndex, resultData);
+            }
+        },
+        updateResult(state, resultData) {
+            var itemIndex = state.results.findIndex(item => item.identifier === resultData.identifier);
+            if (itemIndex > -1) {
+                resultData.synchronized = true;
+                this.$set(state.results, itemIndex, resultData);
+            }
+        },
+        deleteResult(state, resultData) {
+            var itemIndex = state.results.findIndex(item => item.identifier === resultData.identifier);
+            if (itemIndex > -1) {
+                this.$delete(state.results, itemIndex);
             }
         }
     },
