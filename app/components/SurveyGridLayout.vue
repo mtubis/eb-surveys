@@ -18,7 +18,9 @@ import * as dialogs from 'tns-core-modules/ui/dialogs';
 
 export default {
     props: {
-        surveyData: Object
+        surveyData: Object,
+        resultData: Object,
+        editMode: Boolean
     },
     data() {
         return {
@@ -95,11 +97,21 @@ export default {
         },
         createSurveyResultData() {
             // ToDo: create data structure for survey results
-            if (this.currentSurveyResults.identifier === null) {
+            if (this.editMode === false && this.currentSurveyResults.identifier === null) {
                 this.currentSurveyResults.surveyId = this.surveyData.id;
                 this.currentSurveyResults.identifier = this.generateResultIdentifier();
                 this.currentSurveyResults.startTime = Math.round((new Date()).getTime() / 1000);
                 //this.currentSurveyResults.
+            } else if (this.editMode && this.currentSurveyResults.identifier === null) {
+                this.currentSurveyResults = this.resultData;
+                this.surveyData.fields.forEach(field => {
+                    if (field.type !== "label") {
+                        var fieldIndex = this.resultData.results.findIndex(item => item.fieldId === field.id);
+                        if (fieldIndex > -1) {
+                            this.$set(this.tmpClickCounter, field.id, this.resultData.results[fieldIndex].value);
+                        }
+                    }
+                });
             }
         },
         countTabs(fieldData) {

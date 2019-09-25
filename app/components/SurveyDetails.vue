@@ -21,7 +21,7 @@
                         <Label id="surveyFinish" textWrap="true" class="item-date" row="1" col="3" colSpan="3" :text="resultDateEnd(surveyResult)" />
                         <!-- 3) buttons -->
                         <Label class="item-btn btn btn-primary" row="2" col="0" colSpan="2" text="Vorschau" @tap="navigateToResultPreview(surveyResult)" />
-                        <Label class="item-btn btn btn-primary" row="2" col="2" colSpan="2" text="Bearbeiten" />
+                        <Label class="item-btn btn btn-primary" row="2" col="2" colSpan="2" text="Bearbeiten" @tap="editSurveyResults(surveyResult)" />
                         <Label class="item-btn btn btn-primary" row="2" col="4" colSpan="2" text="Verwerfen" @tap="deleteResultItem(surveyResult)" />
                     </GridLayout>
                     <!-- button -->
@@ -40,7 +40,7 @@ import { mapActions, mapGetters } from "vuex";
 import * as dialogs from 'tns-core-modules/ui/dialogs';
 
 import ResultPreview from "./ResultPreview";
-import NewSurveyGridLayout from "./NewSurveyGridLayout";
+import SurveyGridLayout from "./SurveyGridLayout";
 
 export default {
     props: {
@@ -76,9 +76,23 @@ export default {
         },
         newSurveyResults() {
             var surveyData = this.selectedSurvey;
+            var resultData = {};
+            var editMode = false;
             switch (this.selectedSurvey.layout.type) {
                 case "GridLayout":
-                    this.$navigateTo(NewSurveyGridLayout, { props: {surveyData} });
+                    this.$navigateTo(SurveyGridLayout, { props: {surveyData, resultData, editMode} });
+                    break;
+                case "StackLayout":
+
+                    break;
+            }
+        },
+        editSurveyResults(resultData) {
+            var surveyData = this.selectedSurvey;
+            var editMode = true;
+            switch (this.selectedSurvey.layout.type) {
+                case "GridLayout":
+                    this.$navigateTo(SurveyGridLayout, { props: {surveyData, resultData, editMode} });
                     break;
                 case "StackLayout":
 
