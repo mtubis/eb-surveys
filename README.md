@@ -30,3 +30,12 @@ tns debug <platform>
 tns build <platform> --env.production
 
 ```
+
+## My workflow (for development and tests)
+``` bash
+json-server --watch db.json
+tns platform remove android
+tns install
+tns run android --debug
+
+```
